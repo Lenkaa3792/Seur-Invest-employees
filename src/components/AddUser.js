@@ -10,7 +10,7 @@ import
     Button,
   } from 'reactstrap'
 
-export default function Adduser ()
+export default function AddUser ()
 {
   const [ name, setName ] = useState( "" );
   const [ workNumber, setWorkNumber ] = useState( "" );
@@ -23,8 +23,10 @@ export default function Adduser ()
   {
     setWorkNumber( event.target.value );
   }
-  function handleSubmit (event)
+  function handleSubmit ( event )
   {
+    event.preventDefault();
+    // console.log( name, workNumber );
     if (name === "" || workNumber === "")
     {
       alert( "Please fill all the fields" );
@@ -47,22 +49,32 @@ export default function Adduser ()
         });
     }
     
-    event.preventDefault();
+    
     console.log( name, workNumber );
   }
 
   return (
     <div>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <FormGroup>
           <label>Name</label>
-          <Input type="text" name="name" placeholder="Enter Name" />
+          <Input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            onChange={handlename}
+          />
         </FormGroup>
         <FormGroup>
           <label>Work Number</label>
-          <Input type="text" name="name" placeholder="work number" />
+          <Input
+            type="text"
+            name="name"
+            placeholder="work number"
+            onChange={handleworkNumber}
+          />
         </FormGroup>
-        <Button type="submit" >Submit</Button>
+        <Button type="submit">Submit</Button>
         <Link to={"/"} className="btn btn-danger ml-2">
           Cancel
         </Link>
