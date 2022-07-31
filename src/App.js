@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Adduser from './components/AddUser';
 import EditUser from './components/EditUser';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import AddEmployee from './components/AddEmployee';
 import { useEffect,useState } from 'react';
 import './App.css';
 
@@ -19,7 +20,8 @@ function App ()
         {/* <h1>Nav </h1> */}
         <Switch>
           <Route exact path="/add" component={Adduser} />
-          <Route path="/edit" component={EditUser} />
+          <Route path="/edit" component={ EditUser } />
+          {/* <Route path="/addEmployee" component={AddEmployee} /> */}
           <Route path="/" component={Home} />
           
         </Switch>

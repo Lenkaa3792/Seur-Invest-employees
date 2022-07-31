@@ -1,45 +1,29 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import
-  {
-    Form,
-    FormGroup,
-    Label,
-    Input,
-    Button,
-  } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
-export default function AddUser ()
-{
-  const [ name, setName ] = useState( "" );
-  const [ workNumber, setWorkNumber ] = useState( "" );
+export default function AddUser() {
+  const [name, setName] = useState("");
+  const [workNumber, setWorkNumber] = useState("");
 
-  function handlename (event)
-  {
-    setName( event.target.value );
+  function handlename(event) {
+    setName(event.target.value);
   }
-  function handleworkNumber (event)
-  {
-    setWorkNumber( event.target.value );
+  function handleworkNumber(event) {
+    setWorkNumber(event.target.value);
   }
-  function handleSubmit ( event )
-  {
+  function handleSubmitting(event) {
     event.preventDefault();
-    // console.log( name, workNumber );
-    if (name === "" || workNumber === "")
-    {
-      alert( "Please fill all the fields" );
-    }
-    else
-    {
-
+    if (name === "" || workNumber === "") {
+      alert("Please fill all the fields");
+    } else {
       fetch("http://localhost:3000/SeurEmployees", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, workNumber }),
+        body: JSON.stringify({ Name: name, workNumber: workNumber }),
       })
         .then((response) => response.json())
         .then((data) => {
@@ -48,14 +32,35 @@ export default function AddUser ()
           setWorkNumber("");
         });
     }
-    
-    
-    console.log( name, workNumber );
+
+    console.log(name, workNumber);
   }
+
+  // function handleSubmit(event) {
+  //   event.preventDefault();
+  //   const formData = { "Name": name, "workNumber":workNumber }
+    
+  //   console.log(formData);
+  //   fetch("http://localhost:3000/SeurEmployees", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify( 
+  //       formData
+  //      ),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setName("");
+  //       setWorkNumber("");
+  //     });
+  // }
 
   return (
     <div>
-      <Form onSubmit={handleSubmit}>
+      <Form >
         <FormGroup>
           <label>Name</label>
           <Input

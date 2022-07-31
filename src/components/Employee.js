@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 export const Employee = (  {employee}) =>
 { 
-  console.log( employee );
+  console.log( employee);
   
   const employeelist = employee.map( (emp ) =>
   { 
