@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import
   {
@@ -9,7 +10,47 @@ import
     Button,
   } from 'reactstrap'
 
-export default function Adduser() {
+export default function Adduser ()
+{
+  const [ name, setName ] = useState( "" );
+  const [ workNumber, setWorkNumber ] = useState( "" );
+
+  function handlename (event)
+  {
+    setName( event.target.value );
+  }
+  function handleworkNumber (event)
+  {
+    setWorkNumber( event.target.value );
+  }
+  function handleSubmit (event)
+  {
+    if (name === "" || workNumber === "")
+    {
+      alert( "Please fill all the fields" );
+    }
+    else
+    {
+
+      fetch("http://localhost:3000/SeurEmployees", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, workNumber }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setName("");
+          setWorkNumber("");
+        });
+    }
+    
+    event.preventDefault();
+    console.log( name, workNumber );
+  }
+
   return (
     <div>
       <Form>
