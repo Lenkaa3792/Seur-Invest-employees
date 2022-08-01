@@ -8,7 +8,7 @@ export default function Home() {
   function Add(newForm)
   {
     setEmployee( [...employee, newForm] );
-  
+
 }
 
   useEffect(() => {
