@@ -4,7 +4,7 @@ This app is an employee data application that a user sees thye employee details 
 ## Features
 1.add employee
 2.See all employees
-##Requirements
+## Requirements
 1.Access to a computer
 2.Internet access
 ## Installation Process
