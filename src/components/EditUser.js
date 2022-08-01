@@ -12,7 +12,7 @@ export default function EditUser() {
           <Input type="text" name="name" placeholder="Input employee  Name" />
         </FormGroup>
         <FormGroup>
-          <label>work number</label>
+          <label>Work number</label>
           <Input type="text" name="name" placeholder="work number" />
         </FormGroup>
 
