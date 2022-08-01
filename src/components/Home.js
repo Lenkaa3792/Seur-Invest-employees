@@ -10,7 +10,6 @@ export default function Home() {
     setEmployee( [...employee, newForm] );
 
 }
-
   useEffect(() => {
     fetch("http://localhost:3000/SeurEmployees")
       .then((response) => response.json())
