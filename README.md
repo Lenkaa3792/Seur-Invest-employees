@@ -1,6 +1,6 @@
 ## By Allan Lenkaa Ngochila
 ## Description
-This app is an employee data application that a user sees thye employee details of Seur Inves
+This app is an employee data application that a user sees thye employee details of Seur Invest
 ## Features
 1.add employee
 2.See all employees
