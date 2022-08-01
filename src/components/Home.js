@@ -4,9 +4,15 @@ import { useEffect, useState } from "react";
 import AddEmployee from "./AddEmployee";
 
 export default function Home() {
-  const [employee, setEmployee] = useState([]);
+  const [ employee, setEmployee ] = useState( [] );
+  function Add(newForm)
+  {
+    setEmployee( [...employee, newForm] );
+  
+}
+
   useEffect(() => {
-    fetch("https://jsoni.herokuapp.com/SeurEmployees")
+    fetch("http://localhost:3000/SeurEmployees")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -18,7 +24,6 @@ export default function Home() {
       <Heading />
       <Employee employee={employee} />
       {/* {FormData} */}
-    
     </div>
   );
 }

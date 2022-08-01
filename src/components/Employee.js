@@ -9,7 +9,7 @@ export const Employee = (  {employee}) =>
   const employeelist = employee.map( (emp ) =>
   { 
     return (
-      <ListGroupItem className="display: flex">
+      <ListGroupItem className="display: flex" key={emp.workNumber}>
         <p >Work number:{emp.workNumber} </p>
         <strong>{emp.Name}</strong>
         <div className="ml-auto">

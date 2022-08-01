@@ -18,7 +18,7 @@ export default function EditUser() {
 
         <Button type="submit">Edit Name</Button>
         <Link to={"/"} className="btn btn-danger ml-2">
-          Cancel
+          List
         </Link>
       </Form>
     </div>

@@ -8,59 +8,46 @@ export default function AddUser() {
   const [workNumber, setWorkNumber] = useState("");
 
   function handlename(event) {
-    setName(event.target.value);
+    setName( event.target.value );
+    console.log(event.target.value);
   }
   function handleworkNumber(event) {
-    setWorkNumber(event.target.value);
+    setWorkNumber( event.target.value );
+     console.log(event.target.value);
   }
-  function handleSubmitting(event) {
+  function handleSubmitting ( event )
+  {
+   
     event.preventDefault();
-    if (name === "" || workNumber === "") {
-      alert("Please fill all the fields");
-    } else {
-      fetch("http://localhost:3000/SeurEmployees", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ Name: name, workNumber: workNumber }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          setName("");
-          setWorkNumber("");
-        });
-    }
-
-    console.log(name, workNumber);
+    const formData = { "Name": name, "workNumber": workNumber };
+    console.log( formData );
+    fetch("http://localhost:3000/SeurEmployees", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setName("");
+        setWorkNumber("");
+      });
   }
+    
+  
 
   // function handleSubmit(event) {
   //   event.preventDefault();
   //   const formData = { "Name": name, "workNumber":workNumber }
     
   //   console.log(formData);
-  //   fetch("http://localhost:3000/SeurEmployees", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify( 
-  //       formData
-  //      ),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setName("");
-  //       setWorkNumber("");
-  //     });
-  // }
+    
 
   return (
     <div>
-      <Form >
+      <Form  onSubmit={handleSubmitting}>
         <FormGroup>
           <label>Name</label>
           <Input
@@ -79,11 +66,31 @@ export default function AddUser() {
             onChange={handleworkNumber}
           />
         </FormGroup>
-        <Button type="submit">Submit</Button>
+        <Button type="submit" onClick={handleSubmitting} >Submit</Button>
         <Link to={"/"} className="btn btn-danger ml-2">
-          Cancel
+          List
         </Link>
       </Form>
     </div>
   );
 }
+
+// if (name === "" || workNumber === "") {
+//   alert("Please fill all the fields");
+// } else {
+//   fetch("http://localhost:3000/SeurEmployees", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: JSON.stringify({ Name: name, workNumber: workNumber }),
+//   })
+//     .then((response) => response.json())
+//     .then((data) => {
+//       console.log(data);
+//       setName("");
+//       setWorkNumber("");
+//     });
+// }
+
+// console.log(name, workNumber);

@@ -7,10 +7,10 @@ export const Heading = () => {
   return (
       <Navbar color="grey">
           <Container>
-              <NavbarBrand href="/">Seur Invest Employees</NavbarBrand>
+              <NavbarBrand href="/">Seur Invest Employee List </NavbarBrand>
               <Nav>
                   <NavItem>
-                        <Link to="/add">Add Employee</Link>
+                        <Link to="/add" >Add Employee</Link>
                   </NavItem>
               </Nav>
           </Container>
